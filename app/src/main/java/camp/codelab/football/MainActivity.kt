@@ -1,6 +1,7 @@
 package camp.codelab.football
 
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
@@ -15,6 +16,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        barcaScore = sharedPreferences.getInt("BARCA_SCORE", 0)
+        realScore = sharedPreferences.getInt("REAL_SCORE", 0)
+
+
+
         barcaGoalButton.setOnClickListener { barcaScore() }
         realGoalButton.setOnClickListener { realScore() }
 
@@ -27,6 +34,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onStop() {
+        super.onStop()
+        val editor = PreferenceManager.getDefaultSharedPreferences(this).edit()
+        editor.putInt("BARCA_SCORE", barcaScore)
+        editor.putInt("REAL_SCORE", realScore)
+        editor.apply()
+    }
 
     fun barcaScore() {
         barcaScore++
@@ -55,16 +69,18 @@ class MainActivity : AppCompatActivity() {
 
     fun finishMatch() {
 
-        val message: String
+        var message: String? = null
 
         if (barcaScore == realScore)
             message = "It's a draw!"
         else if (barcaScore > realScore)
             message = "Barca Won!"
         else
-            message = "Real Won!"
+            message = null
 
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+
+
+        Toast.makeText(this, message?.toString(), Toast.LENGTH_LONG).show()
 
     }
 
