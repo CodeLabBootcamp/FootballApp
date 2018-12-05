@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+
+    <TextView
+            android:text="Welcome to El Classico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent" android:textSize="24sp"
+            android:textColor="#000000"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@drawable/logo_real"
+            android:id="@+id/imageView"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/imageView2" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@drawable/logo_barca"
+            android:id="@+id/imageView2"
+            app:layout_constraintStart_toEndOf="@+id/imageView" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView"/>
+    <TextView
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/realScoreTextView" app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="@+id/imageView" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" android:textSize="24sp"/>
+    <TextView
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/barcaScoreTextView" app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" android:textSize="24sp"/>
+    <Button
+            android:text="Goal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/realGoalButton" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/realScoreTextView"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="@+id/imageView"/>
+    <Button
+            android:text="oops"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/realOopsButton"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="@+id/imageView" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/realGoalButton"/>
+    <Button
+            android:text="Goal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/barcaGoalButton" app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toStartOf="@+id/imageView2" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/barcaScoreTextView"/>
+    <Button
+            android:text="Oops"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/barcaOopsButton"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2" app:layout_constraintStart_toStartOf="@+id/imageView2"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/barcaGoalButton"/>
+    <Button
+            android:text="Finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/finishButton" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/realOopsButton"
+            app:layout_constraintBottom_toTopOf="@+id/resetButton" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
+    <Button
+            android:text="Reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/resetButton"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@+id/finishButton"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+</android.support.constraint.ConstraintLayout>
